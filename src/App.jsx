@@ -275,17 +275,17 @@ const App = () => {
         camera.upperBetaLimit = null;
         camera.lowerRadiusLimit = 5;
         camera.upperRadiusLimit = 30;
-
+        // to reset
         arrow.isVisible = false;
-        //arrow direction
+
         const dragVector = dragStartPos.subtract(dragEndPos);
         dragVector.y = 0;
         const forceMagnitude = powerMeter;
         const forceDirection = dragVector.normalize();
-
+        // apply force
         const force = forceDirection.scale(forceMagnitude);
         ball.physicsImpostor.applyImpulse(force, ball.getAbsolutePosition());
-
+        //score counter
         score++;
         document.getElementById("score-info").innerText = `Shots: ${score}`;
         resetPowerBar();
